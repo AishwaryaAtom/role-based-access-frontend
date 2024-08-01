@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Navbar from "./Navbar";
 
 export default function Dashboard() {
   const [users, setUsers] = useState([]);
@@ -53,39 +54,44 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="container mt-5">
-      {message == null ? <h1 className="text-center mb-4">Dashboard</h1> : null}
-      {message == null ? (
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Email</th>
-              <th>Role</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users?.map((user) => (
-              <tr key={user._id}>
-                <td>{user.email}</td>
-                <td>
-                  <select
-                    value={user.role}
-                    onChange={(e) => updateUserRole(user._id, e.target.value)}
-                  >
-                    <option value="user">User</option>
-                    <option value="admin">Admin</option>
-                  </select>
-                </td>
+    <>
+      <Navbar />
+      <div className="container mt-5">
+        {message == null ? (
+          <h1 className="text-center mb-4">Dashboard</h1>
+        ) : null}
+        {message == null ? (
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Email</th>
+                <th>Role</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      ) : (
-        <>
-          <h1>{message}</h1>
-          <h3>You have no access to this page</h3>
-        </>
-      )}
-    </div>
+            </thead>
+            <tbody>
+              {users?.map((user) => (
+                <tr key={user._id}>
+                  <td>{user.email}</td>
+                  <td>
+                    <select
+                      value={user.role}
+                      onChange={(e) => updateUserRole(user._id, e.target.value)}
+                    >
+                      <option value="user">User</option>
+                      <option value="admin">Admin</option>
+                    </select>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <>
+            <h1>{message}</h1>
+            <h3>You have no access to this page</h3>
+          </>
+        )}
+      </div>
+    </>
   );
 }

@@ -5,6 +5,7 @@ import LoginForm from "./auth/Login.jsx";
 import ProtectedRoute from "./components/ProctectedRoute";
 import { AuthProvider } from "./components/AuthContext.jsx";
 import Dashboard from "./components/Dashboard.jsx";
+import Profile from "./components/Profile.jsx";
 import "./style.css";
 
 const App = () => (
@@ -14,18 +15,20 @@ const App = () => (
   //     <Route path="/login" element={<LoginForm />} />
   //   </Routes>
   // </Router>
-  <AuthProvider>
-    <Router>
+
+  <Router>
+    <AuthProvider>
       <Routes>
         <Route path="/" element={<RegistrationForm />} />
         <Route path="/login" element={<LoginForm />} />
+        <Route path="/profile" element={<ProtectedRoute element={Profile} />} />
         <Route
           path="/dashboard"
           element={<ProtectedRoute element={Dashboard} />}
         />
       </Routes>
-    </Router>
-  </AuthProvider>
+    </AuthProvider>
+  </Router>
 );
 
 export default App;

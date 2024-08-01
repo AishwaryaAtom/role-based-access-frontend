@@ -46,7 +46,7 @@ const LoginForm = () => {
                 setFieldError("email", errorMessage);
               }
             } else {
-              navigate("/dashboard");
+              navigate("/profile");
             }
 
             setSubmitting(false);

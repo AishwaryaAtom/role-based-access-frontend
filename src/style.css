@@ -59,3 +59,28 @@ button:hover {
   padding: 20px 20px;
   border: 5px dashed #a855f7;
 }
+.navbar {
+  margin-bottom: 20px;
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.navbar-dark .navbar-brand {
+  color: #fff;
+}
+
+.btn.nav-link {
+  color: rgba(255, 255, 255, 0.75);
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.btn.nav-link:hover {
+  color: rgba(255, 255, 255, 1);
+}
