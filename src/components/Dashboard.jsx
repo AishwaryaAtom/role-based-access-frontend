@@ -19,9 +19,12 @@ export default function Dashboard() {
   const fetchReports = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:5000/api/reports", {
-        headers: { Authorization: `Bearer ${authToken}` },
-      });
+      const response = await axios.get(
+        `${import.meta.env.VITE_URL}/api/reports`,
+        {
+          headers: { Authorization: `Bearer ${authToken}` },
+        }
+      );
       setReports(response.data);
       setLoading(false);
     } catch (error) {
@@ -44,13 +47,13 @@ export default function Dashboard() {
     try {
       if (editReport) {
         await axios.put(
-          `http://localhost:5000/api/reports/${editReport._id}`,
+          `${import.meta.env.VITE_URL}/api/reports/${editReport._id}`,
           { title: newReport.title, content: newReport.content },
           { headers: { Authorization: `Bearer ${authToken}` } }
         );
       } else {
         await axios.post(
-          "http://localhost:5000/api/reports",
+          `${import.meta.env.VITE_URL}/api/reports`,
           { title: newReport.title, content: newReport.content },
           {
             headers: {
@@ -59,9 +62,12 @@ export default function Dashboard() {
           }
         );
       }
-      const response = await axios.get("http://localhost:5000/api/reports", {
-        headers: { Authorization: `Bearer ${authToken}` },
-      });
+      const response = await axios.get(
+        `${import.meta.env.VITE_URL}/api/reports`,
+        {
+          headers: { Authorization: `Bearer ${authToken}` },
+        }
+      );
       setReports(response.data);
       handleClose();
     } catch (error) {
@@ -71,11 +77,14 @@ export default function Dashboard() {
   const handleDelete = async (reportId) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:5000/api/reports/${reportId}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      await axios.delete(
+        `${import.meta.env.VITE_URL}/api/reports/${reportId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       alert(`Report deleted successfully`);
       fetchReports();

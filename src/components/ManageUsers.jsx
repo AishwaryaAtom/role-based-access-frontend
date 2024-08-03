@@ -14,7 +14,7 @@ export default function ManageUsers() {
     setLoading(true);
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/users/users",
+        `${import.meta.env.VITE_URL}/api/users/users`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -39,7 +39,7 @@ export default function ManageUsers() {
   const updateUserRole = async (userId, newRole) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/users/${userId}/role`,
+        `${import.meta.env.VITE_URL}/api/users/${userId}/role`,
         { role: newRole },
         {
           headers: {
@@ -60,7 +60,7 @@ export default function ManageUsers() {
   const deleteUser = async (userId) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:5000/api/users/${userId}`, {
+      await axios.delete(`${import.meta.env.VITE_URL}/api/users/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

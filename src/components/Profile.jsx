@@ -12,11 +12,14 @@ export default function Profile() {
   const getProfile = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:5000/api/auth/me", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      const response = await axios.get(
+        `${import.meta.env.VITE_URL}/api/auth/me`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
       setUsers(response.data);
       setLoading(false);
     } catch (error) {
