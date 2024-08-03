@@ -5,6 +5,7 @@ import LoginForm from "./auth/Login.jsx";
 import ProtectedRoute from "./components/ProctectedRoute";
 import { AuthProvider } from "./components/AuthContext.jsx";
 import Dashboard from "./components/Dashboard.jsx";
+import ManageUsers from "./components/ManageUsers.jsx";
 import Profile from "./components/Profile.jsx";
 import "./style.css";
 
@@ -22,6 +23,10 @@ const App = () => (
         <Route path="/" element={<RegistrationForm />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/profile" element={<ProtectedRoute element={Profile} />} />
+        <Route
+          path="/manage"
+          element={<ProtectedRoute element={ManageUsers} />}
+        />
         <Route
           path="/dashboard"
           element={<ProtectedRoute element={Dashboard} />}

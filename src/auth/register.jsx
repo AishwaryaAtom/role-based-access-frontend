@@ -94,12 +94,19 @@ const RegistrationForm = () => {
               />
             </div>
             <div className="text-center mt-3">
-              <button type="submit" className="btn btn-primary btn-block w-50">
+              <button
+                type="submit"
+                className="btn btn-primary btn-block w-50 loginbtn"
+              >
                 Register
               </button>
             </div>
-            <div>
-              Already Registered ? <Link to="/login"> Login </Link>{" "}
+            <div className="text-center mt-2">
+              Already Registered ?{" "}
+              <Link to="/login">
+                {" "}
+                <b>Login</b>{" "}
+              </Link>{" "}
             </div>
           </Form>
         </Formik>

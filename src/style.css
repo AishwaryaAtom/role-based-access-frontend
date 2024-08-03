@@ -35,7 +35,7 @@ select {
   font-size: 16px;
 }
 
-button {
+.loginbtn {
   padding: 10px;
   font-size: 16px;
   background: linear-gradient(135deg, #a855f7, #f472b6);
@@ -83,4 +83,10 @@ button:hover {
 
 .btn.nav-link:hover {
   color: rgba(255, 255, 255, 1);
+}
+.createbtn {
+  background-color: green !important;
+}
+.deletebtn {
+  background-color: red !important;
 }

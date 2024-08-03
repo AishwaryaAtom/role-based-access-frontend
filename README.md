@@ -1,8 +1,11 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+In this Project a Person can Login and Register with a Specific role eg.ADMIN OR USER
 
-Currently, two official plugins are available:
+In Manage users Only ADMIN can change the ROLE of the Users ,delete the users and view the users list
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+In Profile Page all can view their profile details
+
+In Dashboard USERS and ADMIN Can create and update the REPORT
+
+But only ADMIN has permission to DELETE the REPORT

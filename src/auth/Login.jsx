@@ -13,19 +13,6 @@ const LoginForm = () => {
     <div className="container mt-5">
       <h1 className="text-center mb-4">Login</h1>
       <div className="col-md-5 mx-auto main-bg">
-        {/* <Formik
-          initialValues={{ email: "", password: "" }}
-          validationSchema={Yup.object({
-            email: Yup.string()
-              .email("Invalid email address")
-              .required("Required"),
-            password: Yup.string().required("Required"),
-          })}
-          onSubmit={(values, { setSubmitting }) => {
-            login(values.email, values.password);
-            setSubmitting(false);
-          }}
-        > */}
         <Formik
           initialValues={{ email: "", password: "" }}
           validationSchema={Yup.object({
@@ -72,12 +59,18 @@ const LoginForm = () => {
               />
             </div>
             <div className="text-center mt-3">
-              <button type="submit" className="btn btn-primary btn-block">
+              <button
+                type="submit"
+                className="btn btn-primary btn-block loginbtn"
+              >
                 Login
               </button>
             </div>
-            <div>
-              Don't have an account? <Link to="/">Register</Link>
+            <div className="text-center mt-2">
+              Don't have an account?{" "}
+              <Link to="/">
+                <b>Register</b>
+              </Link>
             </div>
           </Form>
         </Formik>
